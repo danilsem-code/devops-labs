@@ -1,0 +1,44 @@
+name: CI Pipeline
+
+# Когда запускать
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# Что делать
+jobs:
+  check-code:
+    runs-on: ubuntu-latest  # Виртуальная машина Ubuntu
+    
+    steps:
+      # 1. Клонируем код
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      # 2. Устанавливаем Python
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      # 3. Проверяем синтаксис Python-файлов
+      - name: Check Python syntax
+        run: |
+          echo "🔍 Проверка Python-файлов..."
+          find . -name "*.py" -not -path "./.venv/*" | while read file; do
+            python -m py_compile "$file" && echo "✅ $file"
+          done
+      
+      # 4. Проверяем Bash-скрипты
+      - name: Check Bash scripts
+        run: |
+          echo "🔍 Проверка Bash-скриптов..."
+          find . -name "*.sh" | while read file; do
+            bash -n "$file" && echo "✅ $file"
+          done
+      
+      # 5. Финальное сообщение
+      - name: Success
+        run: echo "🎉 Все проверки пройдены!"
