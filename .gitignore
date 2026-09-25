@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# Логи
+*.log
+logs/
+
+# Секреты
+.env
+*.key
+*.pem
+
+# macOS
+.DS_Store
