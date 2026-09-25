@@ -1,21 +1,29 @@
 # Python
 __pycache__/
-*.pyc
+*.py[cod]
 .venv/
 venv/
-
-# IDE
-.idea/
-.vscode/
-
-# Логи
-*.log
-logs/
 
 # Секреты
 .env
 *.key
 *.pem
 
+# Логи
+*.log
+logs/*.log
+
+# IDE
+.idea/
+.vscode/
+
 # macOS
 .DS_Store
+._*
+.AppleDouble
+
+# Бэкапы
+backups/
+*.tar.gz
+*.zip
+
