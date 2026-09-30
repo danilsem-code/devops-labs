@@ -1,0 +1,37 @@
+# ============================================
+# КОНФИГ DEVOPS-ИНСТРУМЕНТА
+# ============================================
+
+# Серверы для мониторинга
+servers:
+  - name: "Google DNS"
+    host: "8.8.8.8"
+    critical: true
+  - name: "Cloudflare DNS"
+    host: "1.1.1.1"
+    critical: true
+  - name: "Google"
+    host: "google.com"
+    critical: false
+
+# Пороги для алертов
+thresholds:
+  cpu: 80
+  ram: 85
+  disk: 90
+
+# База данных
+database:
+  path: "metrics.db"
+
+# Логирование
+logging:
+  level: "INFO"
+  file: "logs/devops_tool.log"
+
+# Уведомления (заполни, если нужно)
+notifications:
+  enabled: false
+  telegram:
+    token: ""
+    chat_id: ""

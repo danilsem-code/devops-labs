@@ -27,3 +27,11 @@ backups/
 *.tar.gz
 *.zip
 
+# Базы данных
+*.db
+*.sqlite
+*.sqlite3
+
+# Локальные конфиги
+config.local.yaml
+
