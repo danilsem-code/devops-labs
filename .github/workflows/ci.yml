@@ -42,3 +42,9 @@ jobs:
       # 5. Финальное сообщение
       - name: Success
         run: echo "🎉 Все проверки пройдены!"
+      # 6. Проверка доступности серверов (используем наш CLI)
+      - name: Check servers availability
+        run: |
+          echo "🔍 Проверка доступности серверов..."
+          python3 week3/monitor_cli.py check 8.8.8.8 1.1.1.1 --exit-on-fail
+          echo "✅ Все серверы доступны!"
