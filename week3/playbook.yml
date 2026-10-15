@@ -1,0 +1,26 @@
+---
+- name: Настройка веб-серверов
+  hosts: webservers
+  become: yes
+  
+  vars:
+    nginx_port: 80
+    app_dir: /var/www/app
+    
+  tasks:
+    - name: Установить nginx
+      apt:
+        name: nginx
+        state: present
+    
+    - name: Запустить nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+    
+    - name: Создать директорию приложения
+      file:
+        path: "{{ app_dir }}"
+        state: directory
+        mode: '0755'

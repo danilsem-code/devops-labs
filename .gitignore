@@ -35,3 +35,5 @@ backups/
 # Локальные конфиги
 config.local.yaml
 
+# Тестовые файлы
+test_*.txt
